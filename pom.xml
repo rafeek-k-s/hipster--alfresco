@@ -363,6 +363,16 @@
             <artifactId>spring-cloud-starter-oauth2</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        <!-- <dependency>
+<groupId>org.alfresco.client</groupId>
+<artifactId>alfresco-java-client</artifactId>
+<version>1.0.0-beta1</version>
+
+</dependency> -->
+        
+        
+        
+        
     </dependencies>
 
     <build>
