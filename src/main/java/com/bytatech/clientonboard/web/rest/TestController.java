@@ -21,6 +21,7 @@ import com.bytatech.clientonboard.client.dms.api.NodesApi;
 import com.bytatech.clientonboard.client.dms.api.PeopleApi;
 import com.bytatech.clientonboard.client.dms.api.SharedLinksApi;
 import com.bytatech.clientonboard.client.dms.api.SitesApi;
+import com.bytatech.clientonboard.client.dms.model.NodeBodyCopy;
 import com.bytatech.clientonboard.client.dms.model.NodeBodyCreate;
 import com.bytatech.clientonboard.client.dms.model.NodeBodyUpdate;
 import com.bytatech.clientonboard.client.dms.model.NodeEntry;
@@ -247,4 +248,22 @@ public class TestController {
 		return document;
 	}
 
+	
+	
+		@PostMapping("/copyNode")
+	public String copyNode(/*@RequestBody NodeBodyCopy nodeBodyCopy*/) {
+		
+		NodeBodyCopy nodeBodyCopy= new NodeBodyCopy();
+		
+		nodeBodyCopy.setTargetParentId("63a797dc-06cd-445a-8562-40f8687498c4");
+		nodesApi.copyNode("313fbcde-8112-4e29-918b-9651e3a6c42a", nodeBodyCopy, null, null);
+		
+		
+		return "success";
+	}
+	
+	
+	
+	
+	
 }
