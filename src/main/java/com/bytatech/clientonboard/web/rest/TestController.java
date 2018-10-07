@@ -21,6 +21,7 @@ import com.bytatech.clientonboard.client.dms.api.NodesApi;
 import com.bytatech.clientonboard.client.dms.api.PeopleApi;
 import com.bytatech.clientonboard.client.dms.api.SharedLinksApi;
 import com.bytatech.clientonboard.client.dms.api.SitesApi;
+import com.bytatech.clientonboard.client.dms.api.TagsApi;
 import com.bytatech.clientonboard.client.dms.model.NodeBodyCopy;
 import com.bytatech.clientonboard.client.dms.model.NodeBodyCreate;
 import com.bytatech.clientonboard.client.dms.model.NodeBodyUpdate;
@@ -32,6 +33,7 @@ import com.bytatech.clientonboard.client.dms.model.SiteBodyCreate;
 import com.bytatech.clientonboard.client.dms.model.SiteBodyCreate.VisibilityEnum;
 import com.bytatech.clientonboard.client.dms.model.SiteEntry;
 import com.bytatech.clientonboard.client.dms.model.SiteMembershipBodyCreate;
+import com.bytatech.clientonboard.client.dms.model.TagBody;
 import com.bytatech.clientonboard.domain.Document;
 
 @RestController
@@ -42,7 +44,9 @@ public class TestController {
 	NodesApi nodesApi;
 	@Autowired
 	SharedLinksApi sharedLinksApi;
-
+	@Autowired
+	TagsApi tagsApi;
+	
 	@Autowired
 	PeopleApi peopleApi;
 	String id = null;
@@ -262,7 +266,17 @@ public class TestController {
 		return "success";
 	}
 	
-	
+
+		@PostMapping("/tagNode")
+	public String tagNode() {
+			TagBody tagBody =new TagBody();
+			tagBody.setTag("emptyFile");
+		tagsApi.createTagForNode("51b12204-afe1-481c-8f89-cd826fbb7475", tagBody, null);
+		
+		
+		
+		return "success";
+	}
 	
 	
 	
