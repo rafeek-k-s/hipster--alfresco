@@ -188,7 +188,7 @@ public interface NodesApi {
 			@ApiResponse(code = 416, message = "Range Not Satisfiable "),
 			@ApiResponse(code = 200, message = "Unexpected error", response = Error.class) })
 	@RequestMapping(value = "/nodes/{nodeId}/content", produces = "application/json", method = RequestMethod.GET)
-	ResponseEntity<Void> getNodeContent(
+	ResponseEntity<Resource> getNodeContent(
 			@ApiParam(value = "The identifier of a node.", required = true) @PathVariable("nodeId") String nodeId,
 			@ApiParam(value = "**true** enables a web browser to download the file as an attachment. **false** means a web browser may preview the file in a new tab or window, but not download the file.  You can only set this parameter to **false** if the content type of the file is in the supported list; for example, certain image files and PDF files.  If the content type is not supported for preview, then a value of **false**  is ignored, and the attachment will be returned in the response. ", defaultValue = "true") @Valid @RequestParam(value = "attachment", required = false, defaultValue = "true") Boolean attachment,
 			@ApiParam(value = "Only returns the content if it has been modified since the date provided. Use the date format defined by HTTP. For example, `Wed, 09 Mar 2016 16:56:34 GMT`. ") @RequestHeader(value = "If-Modified-Since", required = false) OffsetDateTime ifModifiedSince,

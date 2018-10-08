@@ -277,6 +277,16 @@ public class TestController {
 		
 		return "success";
 	}
+		
+		@GetMapping("/nodeContent")
+		public Resource nodeContent() {
+			
+			return nodesApi.getNodeContent("31321d82-0c72-4d85-8144-197207af7fef", true, null, "false").getBody();
+			
+			
+		}
+		
+		
 	
 	
 	
